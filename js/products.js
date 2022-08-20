@@ -1,62 +1,42 @@
 
-function setCatID(id) {
-    localStorage.setItem("catID", id);
-    window.location = "products.html"
-}
+let productsArray = [];
 
-function showCategoriesList(){
 
-    let htmlContentToAppend = "";
-    for(let i = 0; i < currentCategoriesArray.length; i++){
-        let category = currentCategoriesArray[i];
+document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData("https://japceibal.github.io/emercado-api/cats_products/101.json").then(function(resultObj){
+        if (resultObj.status === "ok"){
+            productsArray = resultObj.data
+            showProductsList()
+        }
+    });
 
-        if (((minCount == undefined) || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
+    function showProductsList(){
 
-            htmlContentToAppend += `
-            <div onclick="setCatID(${category.products.id})" class="list-group-item list-group-item-action cursor-active">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="${category.products.image}" alt="${category.products.description}" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">${category.products.name}</h4>
-                            <small class="text-muted">${category.productCount} artículos</small>
+        let elementsArray = productsArray.products;
+
+        let htmlContentToAppend = "";
+        for(let i = 0; i < elementsArray.length; i++){
+            let category = elementsArray[i];
+    
+    
+                htmlContentToAppend += `
+                <div onclick="setCatID(${category.id})" class="list-group-item list-group-item-action cursor-active">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="${category.image}" alt="${category.description}" class="img-thumbnail">
                         </div>
-                        <p class="mb-1">${category.description}</p>
+                        <div class="col">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h4 class="mb-1">${category.name} - USD${category.cost}</h4>
+                                <small class="text-muted">${category.soldCount} vendidos</small>
+                            </div>
+                            <p class="mb-1">${category.description}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            `
-        }
-
-        document.getElementById("products-list-container").innerHTML = htmlContentToAppend;
+                `
+            }
+    
+            document.getElementById("products-list-container").innerHTML = htmlContentToAppend;
     }
-}
-
-function sortAndShowCategories(sortCriteria, categoriesArray){
-    currentSortCriteria = sortCriteria;
-
-    if(categoriesArray != undefined){
-        currentCategoriesArray = categoriesArray;
-    }
-
-    currentCategoriesArray = sortCategories(currentSortCriteria, currentCategoriesArray);
-
-    //Muestro las categorías ordenadas
-    showCategoriesList();
-}
-
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(CARS_URL).then(function(resultObj){
-        if (resultObj.status === "ok"){
-            currentCategoriesArray = resultObj.data
-            showCategoriesList()
-            //sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
-        }
-    })
-    });
+})
