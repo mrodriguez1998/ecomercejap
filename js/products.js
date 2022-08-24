@@ -16,21 +16,21 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         let htmlContentToAppend = "";
         for(let i = 0; i < elementsArray.length; i++){
-            let category = elementsArray[i];
+            let product = elementsArray[i];
     
     
                 htmlContentToAppend += `
-                <div onclick="setCatID(${category.id})" class="list-group-item list-group-item-action cursor-active">
+                <div onclick="setCatID(${product.id})" class="list-group-item list-group-item-action cursor-active">
                     <div class="row">
                         <div class="col-3">
-                            <img src="${category.image}" alt="${category.description}" class="img-thumbnail">
+                            <img src="${product.image}" alt="${product.description}" class="img-thumbnail">
                         </div>
                         <div class="col">
                             <div class="d-flex w-100 justify-content-between">
-                                <h4 class="mb-1">${category.name} - USD${category.cost}</h4>
-                                <small class="text-muted">${category.soldCount} vendidos</small>
+                                <h4 class="mb-1">${product.name} - USD${product.cost}</h4>
+                                <small class="text-muted">${product.soldCount} vendidos</small>
                             </div>
-                            <p class="mb-1">${category.description}</p>
+                            <p class="mb-1">${product.description}</p>
                         </div>
                     </div>
                 </div>
