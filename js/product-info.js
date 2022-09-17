@@ -4,17 +4,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
             product = resultObj.data
 
             document.getElementById("contenidoProducto").innerHTML = `
-            <h1>${product.name}</h1>
+            <h3>${product.name}</h3>
             <hr>
-            <h2><b>Precio</b></h2>
-            <h2>${product.currency}${product.cost}</h2>
-            <h2><b>Descripcion</b></h2>
-            <h2>${product.description}</h2>
-            <h2><b>Categoria</b></h2>
-            <h2>${product.category}</h2>
-            <h2><b>Cantidad de vendidos</b></h2>
-            <h2>${product.soldCount}</h2>
-            <h2><b>Imagenes ilustrativas</b></h2>
+            <h4><b>Precio</b></h4>
+            <h4>${product.currency}${product.cost}</h4>
+            <h4><b>Descripcion</b></h4>
+            <h4>${product.description}</h4>
+            <h4><b>Categoria</b></h4>
+            <h4>${product.category}</h4>
+            <h4><b>Cantidad de vendidos</b></h4>
+            <h4>${product.soldCount}</h4>
+            <h4><b>Imagenes ilustrativas</b></h4>
 
 
             `
@@ -50,8 +50,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
             for (let comentario of productComments) {
 
                 comments += `<div class="container">
-                <h3><b>${comentario.user}</b>-${comentario.dateTime}</h3>
-                <h3>${comentario.description}</h3>
+                <h4><b>${comentario.user}</b>-${comentario.dateTime}</h4>
+                <h4>${comentario.description}</h4>
                 </div>`;
 
                 document.getElementById("comentariosHtml").innerHTML = comments
