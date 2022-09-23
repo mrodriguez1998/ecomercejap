@@ -31,6 +31,31 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             document.getElementById("fotosHtml").innerHTML = images;
 
+            let productosRelacionados = "";
+
+            for (let relacionado of product.relatedProducts) {
+
+                productosRelacionados += `<div>
+                <div onclick="setProductID(${relacionado.id})" class="list-group-item list-group-item-action cursor-active">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="${relacionado.image}" class="img-thumbnail">
+                        </div>
+                        <div class="col">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h4 class="mb-1">${relacionado.name}</h4>
+                                </div>
+                    </div>
+                </div>
+                </div>
+                `;
+
+            }
+
+            document.getElementById("relatedProducts").innerHTML = productosRelacionados;
+
+            
+
 
         }
 
@@ -39,6 +64,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
         };
     })
 });
+
+function setProductID(id) {
+    localStorage.setItem("productID", id);
+    window.location = "product-info.html"
+}
 
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData("https://japceibal.github.io/emercado-api/products_comments/" + (localStorage.getItem("productID")) + ".json").then(function (resultObj) {

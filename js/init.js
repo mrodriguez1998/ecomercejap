@@ -46,3 +46,16 @@ document.addEventListener("DOMContentLoaded", function(){
   document.getElementById("user").innerHTML = localStorage.getItem("usuario")
 }
 )
+
+document.getElementById("toCart").addEventListener("click", function(){
+  window.location="cart.html"
+})
+
+document.getElementById("toProfile").addEventListener("click", function(){
+  window.location="my-profile.html"
+})
+
+document.getElementById("resetAndRestart").addEventListener("click", function(){
+  window.location="index.html"
+  localStorage.removeItem("usuario");
+})
