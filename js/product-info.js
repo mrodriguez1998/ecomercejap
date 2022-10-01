@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             product = resultObj.data
 
             document.getElementById("contenidoProducto").innerHTML = `
-            <h3>${product.name}</h3>
+            <h2><b>${product.name}</b></h2>
             <hr>
             <h4><b>Precio</b></h4>
             <h4>${product.currency}${product.cost}</h4>
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             document.getElementById("relatedProducts").innerHTML = productosRelacionados;
 
-            
+
 
 
         }
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             for (let comentario of productComments) {
 
                 comments += `<div class="container">
-                <h4><b>${comentario.user}</b>-${comentario.dateTime} ${stars(comentario)}</h4>
+                <h4><b>${comentario.user}</b>-${comentario.dateTime} ${estrellitas(comentario.score)}</h4>
                 <h4>${comentario.description}</h4>
                 </div>`;
 
@@ -91,12 +91,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
     })
 })
 
-function stars(coment){
-    let puntos = coment.score;
-    let contenido = "";
+function estrellitas(score) {
+    let puntuacion = [];
+    for (e = 0; e < score; e++) {
 
-if(puntos == 1)
+        puntuacion += `<span class="fa fa-star checked"></span>`;
+    }
 
+    for (a = 0; (score + a) < 5; a++) {
 
+        puntuacion += `<span class="fa fa-star"></span>`;
+    }
 
-}
+    return puntuacion;
+};
