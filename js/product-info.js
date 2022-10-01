@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             for (let comentario of productComments) {
 
                 comments += `<div class="container">
-                <h4><b>${comentario.user}</b>-${comentario.dateTime}</h4>
+                <h4><b>${comentario.user}</b>-${comentario.dateTime} ${stars(comentario)}</h4>
                 <h4>${comentario.description}</h4>
                 </div>`;
 
@@ -91,3 +91,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
     })
 })
 
+function stars(coment){
+    let puntos = coment.score;
+    let contenido = "";
+
+if(puntos == 1)
+
+
+
+}
