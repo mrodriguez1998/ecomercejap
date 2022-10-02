@@ -32,7 +32,8 @@
           </li>
           <li class="nav-item">
             <div class="dropdown nav-item">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="user" data-bs-toggle="dropdown" aria-expanded="false">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="user" data-bs-toggle="dropdown"
+                aria-expanded="false">
                 Usuario
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -48,13 +49,18 @@
   </nav>
   <main>
     <div class="container" id="contenidoProducto"></div>
-    <div class="container row aling-items-start" id="fotosHtml"></div>
+    <div class="container text-center">
+      <div class="row aling-items-start" id="fotosHtml"></div>
+    </div>
     <div class="container">
+      <hr>
       <h3>Comentarios:</h3>
     </div>
-    <div class="container" id="comentariosHtml"></div>
-    <hr>
+    <div class="d-grid gap-3" id="comentariosHtml">
+      <hr>
+    </div>
     <div class="container">
+      <hr>
       <h3>Comentario:</h3>
       <h4>Tu opinion:</h4>
       <input type="text" id="nuevoComentario" placeholder="Escriba su opinion aqui" required size="50px">
@@ -64,8 +70,8 @@
 
 
     </div>
-    <hr>
-    <div>
+    <div class="container">
+      <hr>
       <h3>Productos relacionados:</h3>
       <div class="container" id="relatedProducts"></div>
     </div>

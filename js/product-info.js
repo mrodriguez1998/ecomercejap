@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             product = resultObj.data
 
             document.getElementById("contenidoProducto").innerHTML = `
-            <h2><b>${product.name}</b></h2>
+            <h2 class="space-top"><b>${product.name}</b></h2>
             <hr>
             <h4><b>Precio</b></h4>
             <h4>${product.currency}${product.cost}</h4>
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             <h4>${product.category}</h4>
             <h4><b>Cantidad de vendidos</b></h4>
             <h4>${product.soldCount}</h4>
-            <h4><b>Imagenes ilustrativas</b></h4>
+            <h4><b>Imagenes ilustrativas:</b></h4>
 
 
             `
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             for (let foto of product.images) {
 
-                images += `<div class="row">
+                images += `<div class="col">
                 <img src = "${foto}" class="bd-placeholder img card-img-top">
                 </div>`;
 
@@ -79,8 +79,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             for (let comentario of productComments) {
 
-                comments += `<div class="container">
-                <h4><b>${comentario.user}</b>-${comentario.dateTime} ${estrellitas(comentario.score)}</h4>
+                comments += `<div class="container p-2 bg-light border">
+                <h4><b>${comentario.user} </b>${comentario.dateTime}  ${estrellitas(comentario.score)}</h4>
                 <h4>${comentario.description}</h4>
                 </div>`;
 
