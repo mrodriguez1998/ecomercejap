@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
             product = resultObj.data
 
             document.getElementById("contenidoProducto").innerHTML = `
-            <h2 class="space-top"><b>${product.name}</b></h2>
+            <br>
+            <h2 class="space-top"><b>${product.name}</b><button type="button" class="btn btn-primary btn-lg" onclick="agregarAlCarrito()">Agregar al carrito</button></h2>
             <hr>
             <h4><b>Precio</b></h4>
             <h4>${product.currency}${product.cost}</h4>
@@ -65,6 +66,25 @@ document.addEventListener("DOMContentLoaded", function (e) {
     })
 });
 
+function agregarAlCarrito(){
+    let productoParaAgregar = {}
+
+    productoParaAgregar = {
+        count: 1,
+        currency: product.currency,
+        id: parseInt((localStorage.getItem("productID"))),
+        image: product.images[0],
+        name: product.name,
+        cost: product.cost,
+    }
+
+    localStorage.setItem("productoNuevo", JSON.stringify(productoParaAgregar));
+    console.log(localStorage.getItem("productoNuevo"));
+    window.location=("cart.html");
+
+   
+}
+
 function setProductID(id) {
     localStorage.setItem("productID", id);
     window.location = "product-info.html"
@@ -104,4 +124,4 @@ function estrellitas(score) {
     }
 
     return puntuacion;
-};
+};  //funcion para colocar estrellas en comentarios

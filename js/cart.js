@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function(){
             </table>
             `
             costoFinal()//la ejecutamos aca para que cuando cargue la pagina, comience ya teniendo costo final
+            console.log(JSON.parse(localStorage.getItem("productoNuevo")))
         }})})
 
     function costoFinal(){
