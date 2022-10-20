@@ -75,7 +75,7 @@ function agregarAlCarrito(){
         id: parseInt((localStorage.getItem("productID"))),
         image: product.images[0],
         name: product.name,
-        cost: product.cost,
+        unitCost: product.cost,
     }
 
     localStorage.setItem("productoNuevo", JSON.stringify(productoParaAgregar));
