@@ -39,15 +39,6 @@ document.addEventListener("DOMContentLoaded", function(){
         for(let i = 0; i < carrito.length; i++){
             let producto = carrito[i];
         document.getElementById("contenedorCarrito").innerHTML += `
-    <table class="table">
-    <tbody>
-    <tr>
-    <th></th>
-    <th>Nombre</th>
-    <th>Costo</th>
-    <th>Cantidad</th>
-    <th>Subtotal</th>
-    </tr>
     <tr>
     <td><img src="${producto.image}" width=50px class=""></td>
     <td>${producto.name}</td>
@@ -55,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function(){
     <td><input type="number" id="cantidadArticulo" style="width: 50px;" min="1" value="${producto.count}" onchange="costoFinal()" required></td>
     <td><b><div id="${producto.id}">${producto.currency}</div></b></td>
     </tr>
-    </table>
+    
     `
     costoFinal(producto)//la ejecutamos aca para que cuando cargue la pagina, comience ya teniendo costo final
     console.log(JSON.parse(localStorage.getItem("productoNuevo")))//primera prueba de si guardaba el articulo en el formato correcto
