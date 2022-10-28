@@ -8,6 +8,7 @@ const CART_BUY_URL = "https://japceibal.github.io/emercado-api/cart/buy.json";
 const EXT_TYPE = ".json";
 const CARS_URL = "https://japceibal.github.io/emercado-api/cats_products/101.json";
 
+
 let showSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "block";
 }
@@ -42,6 +43,10 @@ let getJSONData = function (url) {
 }
 //esto ultimo, al cargar el script, carga en el elemento de id "user" lo que ingresamos en el campo de "email" en el login
 document.addEventListener("DOMContentLoaded", function(){
+
+if ((localStorage.getItem("carrito") == null)) {
+  var carrito = {};
+}
 
   document.getElementById("user").innerHTML = localStorage.getItem("usuario")
 }
