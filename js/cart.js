@@ -9,8 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     getJSONData("https://japceibal.github.io/emercado-api/user_cart/25801.json").then(function (resultObj) {
         if (resultObj.status === "ok") {
 
-    
-
             if ((localStorage.getItem("carrito") == null) && (localStorage.getItem("productoNuevo") == null)) {
                 // Esto lo ejecuta la primera vez que entras a la pagina, y vas directo al carrito
                 carrito = resultObj.data.articles;
@@ -63,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             }
+            subtotal();
 
 
 
@@ -91,12 +90,50 @@ function cargarArticulos() {
     <td><img src="${producto.image}" width=50px class=""></td>
     <td>${producto.name}</td>
     <td>${producto.currency}${producto.unitCost}</td>
-    <td><input type="number" id="cantidadArticulo" style="width: 50px;" min="1" value="${producto.count}" onchange="costoFinal()" required></td>
-    <td><b><div id="${producto.id}">${producto.currency}</div></b></td>
+    <td><input type="number" id="cantidadArticulo${producto.id}" style="width: 50px;" min="1" value="${producto.count}" onchange="actualizarCosto(${producto.id}, ${producto.unitCost})" required></td>
+    <td><b>${producto.currency}<div name=precioFinal id="${producto.id}"></div></b></td>
     </tr>
     
     `
         costoFinal(producto)//la ejecutamos aca para que cuando cargue la pagina, comience ya teniendo costo final
         // console.log(JSON.parse(localStorage.getItem("productoNuevo")))//primera prueba de si guardaba el articulo en el formato correcto
     }
+}
+
+function actualizarCosto(ident, valor) {
+
+    console.log(ident);
+    console.log(valor);
+    cant = document.getElementById("cantidadArticulo" + ident).value
+    document.getElementById(ident).innerHTML = cant * valor
+
+    subtotal()
+
+}
+
+function subtotal() {
+    let precioFinal = [];
+    productos = document.querySelectorAll("div[name=precioFinal]")
+    productos.forEach(element => {
+        precioFinal.push((parseFloat(element.innerHTML)) );  
+    });
+    let total = precioFinal.reduce((a, b) => a + b, 0);
+
+    document.getElementById("subtotal").innerHTML = total
+
+    costoEnvio()
+}
+
+function costoEnvio(){
+    tipoEnvio = (parseFloat(document.querySelector("input[name=envio]:checked").value));
+    costoProductos = (parseFloat((document.getElementById("subtotal")).innerHTML));
+    document.getElementById("costoDelEnvio").innerHTML = tipoEnvio*costoProductos; 
+    
+    total()
+}
+
+function total(){
+    envio = parseFloat(document.getElementById("costoDelEnvio").innerHTML);
+    articulos = parseFloat(document.getElementById("subtotal").innerHTML);
+    document.getElementById("precioFinal").innerHTML = (envio)+(articulos);
 }

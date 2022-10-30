@@ -31,7 +31,8 @@
           </li>
           <li class="nav-item">
             <div class="dropdown nav-item">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="user" data-bs-toggle="dropdown" aria-expanded="false">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="user" data-bs-toggle="dropdown"
+                aria-expanded="false">
                 Usuario
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -49,47 +50,82 @@
     <div class="text-center p-4">
       <h2>Carrito de compras</h2>
     </div>
-        <h4>Articulos a comprar</h4>
-        <div class="center">
-          <table class="table" id="contenedorCarrito">
-          <tbody>
+    <h4>Articulos a comprar</h4>
+    <div class="center">
+      <table class="table" id="contenedorCarrito">
+        <tbody>
           <tr>
-          <th></th>
-          <th>Nombre</th>
-          <th>Costo</th>
-          <th>Cantidad</th>
-          <th>Subtotal</th>
+            <th></th>
+            <th>Nombre</th>
+            <th>Costo</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
           </tr>
-          </table>
-        </div>
-        <hr>
-        <div><h4>Tipo de envio</h4>
-          <form>
-            <fieldset>
-              <div>
-                <input type="radio" id="premium" name="envio" checked>
-                <label for="premium">Premium 2 a 5 dias (15%)</label><br>
-          
-                <input type="radio" id="express" name="envio">
-                <label for="express">Express 5 a 8 dias (7%)</label><br>
-          
-                <input type="radio" id="standar" name="envio">
-                <label for="standar">Standar 12 a 15 dias (5%)</label>
-              </div>
-            </fieldset>
-          </form>
-        <br>
-        <h4>Direccion de envio</h4>
-        <label for="calle">Calle</label><br>
-        <input type="text" id="calle" name="calle"><br>
-        <label for="numero">Numero</label><br>
-        <input type="text" id="numero" name="numero"><br>
-        <label for="esquina">Esquina</label><br>
-        <input type="text" id="esquina" name="esquina">
-        </div>
-      </div>
+      </table>
+    </div>
+    <hr>
+    <div>
+      <h4>Tipo de envio</h4>
+      <form>
+        <fieldset>
+          <div>
+            <input type="radio" id="premium" onchange="costoEnvio()" name="envio" value="0.15" checked>
+            <label for="premium">Premium 2 a 5 dias (15%)</label><br>
+
+            <input type="radio" id="express" onchange="costoEnvio()" name="envio" value="0.07">
+            <label for="express">Express 5 a 8 dias (7%)</label><br>
+
+            <input type="radio" id="standar" onchange="costoEnvio()" name="envio" value="0.05">
+            <label for="standar">Standar 12 a 15 dias (5%)</label>
+          </div>
+        </fieldset>
+      </form>
       <br>
-      <hr>
+      <h4>Direccion de envio</h4>
+      <label for="calle">Calle</label><br>
+      <input type="text" id="calle" name="calle"><br>
+      <label for="numero">Numero</label><br>
+      <input type="text" id="numero" name="numero"><br>
+      <label for="esquina">Esquina</label><br>
+      <input type="text" id="esquina" name="esquina">
+    </div>
+    </div>
+    <hr>
+    <div>
+      <h4>Costos</h4>
+      <br>
+      <div class="cat-list-container">
+        <div class="list-group-item">
+          <div class="d-flex w-100 justify-content-between">
+            <h5>Subtotal</h5>
+            <small>
+              <h5>U$S</h5><h5 id="subtotal"></h5>
+            </small>
+          </div>
+          Costo unitario del producto por cantidad
+        </div>
+        <div class="list-group-item">
+          <div class="d-flex w-100 justify-content-between">
+            <h5>Costo de envio</h5>
+            <small>
+              <h5>U$S</h5><h5 id="costoDelEnvio"></h5>
+            </small>
+          </div>
+          Segun el tipo de envio
+        </div>
+        <div class="list-group-item">
+          <div class="d-flex w-100 justify-content-between">
+            <h5>Total (U$S)</h5>
+            <small>
+              <h5>U$S</h5><h5 id="precioFinal"></h5>
+            </small>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <br>
+    <hr>
     </div>
   </main>
   <footer class="text-muted">
