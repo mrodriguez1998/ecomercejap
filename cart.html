@@ -99,7 +99,8 @@
           <div class="d-flex w-100 justify-content-between">
             <h5>Subtotal</h5>
             <small>
-              <h5>U$S</h5><h5 id="subtotal"></h5>
+              <h5>U$S</h5>
+              <h5 id="subtotal"></h5>
             </small>
           </div>
           Costo unitario del producto por cantidad
@@ -108,7 +109,8 @@
           <div class="d-flex w-100 justify-content-between">
             <h5>Costo de envio</h5>
             <small>
-              <h5>U$S</h5><h5 id="costoDelEnvio"></h5>
+              <h5>U$S</h5>
+              <h5 id="costoDelEnvio"></h5>
             </small>
           </div>
           Segun el tipo de envio
@@ -117,13 +119,87 @@
           <div class="d-flex w-100 justify-content-between">
             <h5>Total (U$S)</h5>
             <small>
-              <h5>U$S</h5><h5 id="precioFinal"></h5>
+              <h5>U$S</h5>
+              <h5 id="precioFinal"></h5>
             </small>
           </div>
         </div>
 
       </div>
     </div>
+    <br>
+    <div>
+      <h4>Formas de pago</h4>
+      <br>
+      <h6>No has seleccionado</h6>
+
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+        Seleccionar
+      </button>
+
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <h4 class="modal-title">Formas de pago</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+           
+            <div class="modal-body">
+              <fieldset>
+              <input type="radio" class=> Tarjeta de credito</input>
+              <hr>
+              <div class="container">
+                <div class="col">
+                  <label for="numeroTarjeta">Número de tarjeta</label>
+                  <input type="text" class="form-control" name="numeroTarjeta">
+                </div>
+                <br>
+                <div class="col">
+                  <label for="codigoSeguridad">Código de seguridad</label>
+                  <input type="text" class="form-control" name="codigoSeguridad">
+                </div>
+                <br>
+                <div class="col">
+                  <label for="vencimiento">Fecha de vencimiento (MM/AA)</label>
+                  <input type="text" class="form-control" name="vencimiento">
+                </div>
+              </div>
+              <hr>
+              <div>
+                <input type="radio"> Transferencia bancaria</input>
+                <hr>             
+              
+                <div class="container">
+                  <div class="col">
+                    <label for="numeroDeCuenta">Número de cuenta</label>
+                    <input type="text" class="form-control" name="numeroDeCuenta">
+                  </div>
+                </div>
+                <br>
+              <hr>
+            </div>
+              
+            
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Guardar y cerrar</button>
+               </div>
+          </fieldset>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    </div>
+    <br>
+    <hr>
     <br>
     <hr>
     </div>

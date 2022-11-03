@@ -188,3 +188,9 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+
+.centrar{
+  align-items: center;display: flex;
+  justify-content: center;
+}
