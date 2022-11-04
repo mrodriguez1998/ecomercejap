@@ -137,3 +137,48 @@ function total(){
     articulos = parseFloat(document.getElementById("subtotal").innerHTML);
     document.getElementById("precioFinal").innerHTML = (envio)+(articulos);
 }
+
+document.getElementById("radioTransferencia").addEventListener("click", function(){
+    document.getElementById("numeroDeCuenta").removeAttribute("disabled")
+    document.getElementById("numeroTarjeta").setAttribute("disabled","")
+    document.getElementById("codigoSeguridad").setAttribute("disabled","")
+    document.getElementById("vencimiento").setAttribute("disabled","")
+    document.getElementById("numeroDeCuenta").setAttribute("required","")
+    document.getElementById("numeroTarjeta").removeAttribute("required")
+    document.getElementById("codigoSeguridad").removeAttribute("required")
+    document.getElementById("vencimiento").removeAttribute("required")
+    document.getElementById("seleccionPago").innerHTML = "Transferencia bancaria"
+})
+
+document.getElementById("radioTarjeta").addEventListener("click", function(){
+    document.getElementById("numeroDeCuenta").setAttribute("disabled","")
+    document.getElementById("numeroTarjeta").removeAttribute("disabled")
+    document.getElementById("codigoSeguridad").removeAttribute("disabled")
+    document.getElementById("vencimiento").removeAttribute("disabled")    
+    document.getElementById("numeroDeCuenta").removeAttribute("required")
+    document.getElementById("numeroTarjeta").setAttribute("required","")
+    document.getElementById("codigoSeguridad").setAttribute("required","")
+    document.getElementById("vencimiento").setAttribute("required","")
+    document.getElementById("seleccionPago").innerHTML = "Tarjeta de credito"
+})
+
+(function () {
+    console.log("ejecuta submit")
+    'use strict'
+  
+    // Obtener todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
+    var forms = document.querySelectorAll('.needs-validation')
+  
+    // Bucle sobre ellos y evitar el envío
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+  
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()

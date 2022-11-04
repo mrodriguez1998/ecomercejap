@@ -131,15 +131,19 @@
     <div>
       <h4>Formas de pago</h4>
       <br>
-      <h6>No has seleccionado</h6>
+      <h6 id="seleccionPago">No has seleccionado</h6>
+      <br>
 
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
         Seleccionar
       </button>
 
+      <button type="submit">Comprar</button>
+
       <div class="modal" id="myModal">
         <div class="modal-dialog">
           <div class="modal-content">
+            <form>
 
             <div class="modal-header">
               <h4 class="modal-title">Formas de pago</h4>
@@ -148,49 +152,47 @@
 
            
             <div class="modal-body">
-              <fieldset>
-              <input type="radio" class=> Tarjeta de credito</input>
+              <input type="radio" name="medioDePago" id="radioTarjeta"> Tarjeta de credito</input>
               <hr>
               <div class="container">
                 <div class="col">
-                  <label for="numeroTarjeta">Número de tarjeta</label>
-                  <input type="text" class="form-control" name="numeroTarjeta">
+                  <label for="numeroTarjeta" class="form-label">Número de tarjeta</label>
+                  <input type="text" id="numeroTarjeta" class="form-control" name="numeroTarjeta">
                 </div>
                 <br>
                 <div class="col">
-                  <label for="codigoSeguridad">Código de seguridad</label>
-                  <input type="text" class="form-control" name="codigoSeguridad">
+                  <label for="codigoSeguridad" class="form-label">Código de seguridad</label>
+                  <input type="text" id="codigoSeguridad" class="form-control" name="codigoSeguridad">
                 </div>
                 <br>
                 <div class="col">
-                  <label for="vencimiento">Fecha de vencimiento (MM/AA)</label>
-                  <input type="text" class="form-control" name="vencimiento">
+                  <label for="vencimiento" class="form-label">Fecha de vencimiento (MM/AA)</label>
+                  <input type="text" id="vencimiento" class="form-control" name="vencimiento">
                 </div>
               </div>
               <hr>
               <div>
-                <input type="radio"> Transferencia bancaria</input>
+                <input type="radio" name="medioDePago" id="radioTransferencia"> Transferencia bancaria</input>
                 <hr>             
               
                 <div class="container">
                   <div class="col">
-                    <label for="numeroDeCuenta">Número de cuenta</label>
-                    <input type="text" class="form-control" name="numeroDeCuenta">
+                    <label for="numeroDeCuenta" >Número de cuenta</label>
+                    <input type="text" class="form-control" id="numeroDeCuenta" name="numeroDeCuenta">
                   </div>
                 </div>
                 <br>
-              <hr>
-            </div>
               
-            
+            </div>            
 
             <!-- Modal footer -->
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Guardar y cerrar</button>
+               <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar y cerrar</button>
                </div>
           </fieldset>
 
           </div>
+          </form>
         </div>
       </div>
 
