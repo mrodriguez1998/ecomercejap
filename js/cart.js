@@ -161,25 +161,46 @@ document.getElementById("radioTarjeta").addEventListener("click", function(){
     document.getElementById("seleccionPago").innerHTML = "Tarjeta de credito"
 })
 
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-document.getElementById("botonComprar").addEventListener("submit", (function () {
-    console.log("hola");
-    'use strict'
-  
-    // Obtener todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
-    var forms = document.querySelectorAll('.needs-validation')
-    console.log(forms);
-  
-    // Bucle sobre ellos y evitar el envío
-    Array.prototype.slice.call(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-  
-          form.classList.add('was-validated')
-        }, false)
-      })
-  })())
+document.addEventListener("submit", function(event){
+    console.log("boton comprar");
+
+    event.preventDefault();
+
+    let aCorroborar = document.querySelectorAll(".needs-validation")
+
+    console.log(aCorroborar);
+    aCorroborar.forEach(elemento =>{
+        elemento.classList.add('was-validated')
+    })
+
+    if (!(document.getElementById("datosDePago")).checkValidity()){
+        document.getElementById("alertaMediosDePago").classList.remove('d-none')
+    } else {
+        document.getElementById("alertaMediosDePago").classList.add('d-none')
+    }
+
+    if ((document.getElementById("datosDeEnvio")).checkValidity() && (document.getElementById("datosDePago")).checkValidity()) {
+        console.log("entro a la alerta")
+        document.getElementById("avisoSubmit").classList.add('alert-primary')
+        document.getElementById("avisoSubmit").classList.add('show')
+    }
+
+    
+})
+
+// document.getElementById("formasDePago").addEventListener("submit", function(event){
+//     console.log("boton comprar");
+
+//     event.preventDefault();
+
+//     let aCorroborar = document.querySelectorAll(".needs-validation")
+//     let primerFormulario = document.getElementById("datosDeEnvio");
+
+//     console.log(aCorroborar);
+//     aCorroborar.forEach(elemento =>{
+//         elemento.classList.add('was-validated')
+//     })
+
+    
+
+// })

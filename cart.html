@@ -109,7 +109,7 @@
           </div>
         </div>
       </div>
-      
+
     </form>
     <hr>
     <div>
@@ -149,86 +149,103 @@
       </div>
     </div>
     <br>
+    <div class="alert alert-primary-dismissible fade" id="avisoSubmit" role="alert">
+      <span>Compra realizada exitosamente!</span>
+    </div>
+
     <div>
       <h4>Formas de pago</h4>
       <br>
-      <h6 id="seleccionPago">No has seleccionado</h6>
+      <form id="formasDePago" class="needs-validation" novalidate></form>
+      <h6 id="seleccionPago" class="needs-validation" novalidate>No has seleccionado</h6>
+      <div class="container alert-danger border border-danger d-none" role="alert" id="alertaMediosDePago">Selecciona un método de pago y rellena correctamente los campos</div>
       <br>
 
       <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#myModal">
         Seleccionar
       </button>
 
-      <button type="submit" form="datosDeEnvio" class="btn btn-primary mt-3 col-md-12" id="botonComprar">Comprar</button>
-
-      <form class="needs-validation" novalidate>
-        
-      </form>
-
-      <form id="formasDePago" class="needs-validation" novalidate>
-        
-        <div class="modal" id="myModal">
-          <div class="modal-dialog">
-            <div class="modal-content">
+      <button type="submit" form="datosDeEnvio" class="btn btn-primary mt-3 col-md-12"
+        id="botonComprar">Comprar</button>
 
 
-              <div class="modal-header">
-                <h4 class="modal-title">Formas de pago</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-              </div>
+
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
 
 
-              <div class="modal-body">
-                <input type="radio" name="medioDePago" id="radioTarjeta"> Tarjeta de credito</input>
+            <div class="modal-header">
+              <h4 class="modal-title">Formas de pago</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+
+            <div class="modal-body">
+              <form class="needs-validation" id="datosDePago" novalidate>
+                <input type="radio" name="medioDePago" id="radioTarjeta" required> Tarjeta de credito</input>
                 <hr>
-                <div class="container">
-                  <div class="col">
-                    <label for="numeroTarjeta" class="form-label">Número de tarjeta</label>
-                    <input type="text" id="numeroTarjeta" class="form-control needs-validation" name="numeroTarjeta">
-                  </div>
-                  <br>
-                  <div class="col">
-                    <label for="codigoSeguridad" class="form-label">Código de seguridad</label>
-                    <input type="text" id="codigoSeguridad" class="form-control needs-validation"
-                      name="codigoSeguridad">
-                  </div>
-                  <br>
-                  <div class="col">
-                    <label for="vencimiento" class="form-label">Fecha de vencimiento (MM/AA)</label>
-                    <input type="text" id="vencimiento" class="form-control needs-validation" name="vencimiento">
-                  </div>
-                </div>
-                <hr>
-                <div>
-                  <input type="radio" name="medioDePago" id="radioTransferencia"> Transferencia bancaria</input>
-                  <hr>
-
-                  <div class="container">
-                    <div class="col">
-                      <label for="numeroDeCuenta">Número de cuenta</label>
-                      <input type="text" class="form-control needs-validation" id="numeroDeCuenta"
-                        name="numeroDeCuenta">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="numeroTarjeta">Número de tarjeta</label>
+                    <input type="text" id="numeroTarjeta" class="form-control needs-validation" value=""
+                      name="numeroTarjeta" disabled>
+                    <div class="invalid-feedback">
+                      Debes rellenar este campo
                     </div>
                   </div>
-                  <br>
-
                 </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar y cerrar</button>
-                  <button type="submit" class="btn btn-primary mt-3 col-md-12" >Guardar y cerrar</button>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="codigoSeguridad">Código de seguridad</label>
+                    <input type="text" class="form-control needs-validation" id="codigoSeguridad" value=""
+                      name="codigoSeguridad" disabled>
+                    <div class="invalid-feedback">
+                      Debes rellenar este campo
+                    </div>
+                  </div>
                 </div>
-                </fieldset>
-
-              </div>
-
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="vencimiento">Fecha de vencimiento (MM/AA)</label>
+                    <input type="text" class="form-control needs-validation" id="vencimiento" value=""
+                      name="vencimiento" disabled>
+                    <div class="invalid-feedback">
+                      Debes rellenar este campo
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <input type="radio" name="medioDePago" id="radioTransferencia" required> Transferencia bancaria</input>
+                <hr>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="numeroDeCuenta">Número de cuenta</label>
+                    <input type="text" class="form-control needs-validation" id="numeroDeCuenta" value=""
+                      name="numeroDeCuenta" disabled>
+                    <div class="invalid-feedback">
+                      Debes rellenar este campo
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar y cerrar</button>
+            </div>
+            </fieldset>
+
           </div>
 
-
         </div>
-      </form>
+      </div>
+
+
+    </div>
+    </form>
+
 
 
     </div>
