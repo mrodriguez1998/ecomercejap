@@ -3,7 +3,6 @@ var arrayDeIDS = [];
 var carrito = JSON.parse(localStorage.getItem("carrito"));
 
 
-
 document.addEventListener("DOMContentLoaded", function () {
     //al cargar la pagina, mete en el html la info en formato tabla de el articulo
     getJSONData("https://japceibal.github.io/emercado-api/user_cart/25801.json").then(function (resultObj) {
@@ -162,12 +161,14 @@ document.getElementById("radioTarjeta").addEventListener("click", function(){
     document.getElementById("seleccionPago").innerHTML = "Tarjeta de credito"
 })
 
-(function () {
-    console.log("ejecuta submit")
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+document.getElementById("botonComprar").addEventListener("submit", (function () {
+    console.log("hola");
     'use strict'
   
     // Obtener todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
     var forms = document.querySelectorAll('.needs-validation')
+    console.log(forms);
   
     // Bucle sobre ellos y evitar el envío
     Array.prototype.slice.call(forms)
@@ -181,4 +182,4 @@ document.getElementById("radioTarjeta").addEventListener("click", function(){
           form.classList.add('was-validated')
         }, false)
       })
-  })()
+  })())
