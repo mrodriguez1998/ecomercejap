@@ -61,10 +61,49 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <div class="container mt-3 pt-5 px-5" style="max-width: 70%">
+      <h2>Perfil</h2>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="primerNombre">Primer nombre</label>
+          <input type="text" class="form-control" id="primerNombre" placeholder="Pablo" required></input>
+        </div>
+        <div class="col-md-6">
+          <label for="segundoNombre">Segundo nombre</label>
+          <input type="text" class="form-control" id="segundoNombre" placeholder="Emilio"></input>
+        </div>
       </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="primerApellido">Primer apellido</label>
+          <input type="text" class="form-control" id="primerApellido" placeholder="Escobar" required></input>
+        </div>
+        <div  id="avisoPerfil" class="alert fade position-absolute top-50 
+        start-50 translate-middle d-none alert-primary" style="width:auto" role="alert">
+          <span>Sus datos fueron guardados correctamente!</span>
+        </div>
+        <div class="col-md-6">
+          <label for="segundoApellido">Segundo apellido</label>
+          <input type="text" class="form-control" id="segundoApellido" placeholder="Gaviria"></input>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="emailUsuario">Correo</label>
+          <input type="email" class="form-control" id="emailUsuario" placeholder="ejemplo@email.com" required></input>
+        </div>
+        <div class="col-md-6">
+          <label for="celularUsuario">Telefono</label>
+          <input type="text" class="form-control" id="celularUsuario" placeholder="099123456"></input>
+        </div>
+      </div>
+      <br>
+      <br>
+      <button id="guardarCambiosUsuario" class="btn btn-primary position-absolute start-50 translate-middle" 
+      style="width:50%">Guardar cambios</button>
     </div>
   </main>
   <footer class="text-muted">
