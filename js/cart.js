@@ -1,10 +1,9 @@
-var cantidad = 1;
 var arrayDeIDS = [];
-var carrito = JSON.parse(localStorage.getItem("carrito"));
+var carrito = JSON.parse(localStorage.getItem("carrito")); //Llama al posible carrito existente
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    //al cargar la pagina, mete en el html la info en formato tabla de el articulo
+    //Al cargar la pagina, mete en el html la info en formato tabla de el articulo
     getJSONData("https://japceibal.github.io/emercado-api/user_cart/25801.json").then(function (resultObj) {
         if (resultObj.status === "ok") {
 
@@ -76,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function costoFinal(articulo) {
     document.getElementById(articulo.id).innerHTML += ((parseInt(articulo.unitCost)) * (parseInt(articulo.count)))
-    // toma el valor del articulo, y lo multiplica por la cantidad en el momento para luego meterlo en el 
+    // Toma el valor del articulo, y lo multiplica por la cantidad en el momento para luego meterlo en el 
     // html,   
 }
 
@@ -107,7 +106,8 @@ function actualizarCosto(ident, valor) {
     document.getElementById(ident).innerHTML = cant * valor
 
     subtotal()
-
+    //Funcion que se ejecuta al variar la cantidad de articulos a comprar de un producto determinado, para con eso ajustar
+    //los precios necesarios
 }
 
 function subtotal() {
@@ -121,6 +121,9 @@ function subtotal() {
     document.getElementById("subtotal").innerHTML = total
 
     costoEnvio()
+
+    //Funcion que se ejecuta en conjunto con actualizarCosto, para corregir el subtotal al variar la cantidad
+    //de un producto a comprar
 }
 
 function costoEnvio(){
@@ -129,13 +132,16 @@ function costoEnvio(){
     document.getElementById("costoDelEnvio").innerHTML = tipoEnvio*costoProductos; 
     
     total()
+    //Funcion que se ejecuta en conjunto con subtotal, para corregir el costo de envio al variar las cantidades
+    //de los productos determinados
 }
 
 function total(){
     envio = parseFloat(document.getElementById("costoDelEnvio").innerHTML);
     articulos = parseFloat(document.getElementById("subtotal").innerHTML);
     document.getElementById("precioFinal").innerHTML = (envio)+(articulos);
-}
+    //Funcion que calcula el total de productos y envio
+    }
 
 document.getElementById("radioTransferencia").addEventListener("click", function(){
     document.getElementById("numeroDeCuenta").removeAttribute("disabled")
@@ -147,7 +153,7 @@ document.getElementById("radioTransferencia").addEventListener("click", function
     document.getElementById("codigoSeguridad").removeAttribute("required")
     document.getElementById("vencimiento").removeAttribute("required")
     document.getElementById("seleccionPago").innerHTML = "Transferencia bancaria"
-})
+    })
 
 document.getElementById("radioTarjeta").addEventListener("click", function(){
     document.getElementById("numeroDeCuenta").setAttribute("disabled","")
@@ -160,6 +166,8 @@ document.getElementById("radioTarjeta").addEventListener("click", function(){
     document.getElementById("vencimiento").setAttribute("required","")
     document.getElementById("seleccionPago").innerHTML = "Tarjeta de credito"
 })
+
+//Estas últimas dos habilitan o deshabilitan los campos del modal segun el medio de pago quese elija
 
 document.addEventListener("submit", function(event){
     console.log("boton comprar");
@@ -187,20 +195,3 @@ document.addEventListener("submit", function(event){
 
     
 })
-
-// document.getElementById("formasDePago").addEventListener("submit", function(event){
-//     console.log("boton comprar");
-
-//     event.preventDefault();
-
-//     let aCorroborar = document.querySelectorAll(".needs-validation")
-//     let primerFormulario = document.getElementById("datosDeEnvio");
-
-//     console.log(aCorroborar);
-//     aCorroborar.forEach(elemento =>{
-//         elemento.classList.add('was-validated')
-//     })
-
-    
-
-// })

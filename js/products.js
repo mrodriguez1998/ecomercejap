@@ -96,12 +96,12 @@ document.addEventListener("DOMContentLoaded", function(e){
             showProductsList()
             console.log(productsArray.catName)
             document.getElementById("pruebaCategoria").innerHTML = productsArray.catName;
-            //no es la idea dejar esto aca pero por el momento funciona, consultar a daniel si esta bien o no (la ubicacion)//
+            //No es la idea dejar esto aca pero por el momento funciona, consultar a daniel si esta bien o no (la ubicacion)//
         }
     });
 
     console.log(productsArray.catName)
-    //prueba de si estaba imprimiento bien el dato, solo lo imprime bien dentro de la funcion anterior//
+    //Prueba de si estaba imprimiento bien el dato, solo lo imprime bien dentro de la funcion anterior//
 
     document.getElementById("priceAsc").addEventListener("click", function(){
         sortAndShowProducts(ORDER_ASC_BY_PRICE)
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         
         console.log(minPrecio)
         console.log(maxPrecio)
-     // para probar si imprime
+     //Para probar si imprime
 
         if ((minPrecio != undefined) && (minPrecio != "") && (parseInt(minPrecio)) >= 0){
             minPrecio = parseInt(minPrecio);

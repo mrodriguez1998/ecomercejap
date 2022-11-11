@@ -41,7 +41,7 @@ let getJSONData = function (url) {
       return result;
     });
 }
-//esto ultimo, al cargar el script, carga en el elemento de id "user" lo que ingresamos en el campo de "email" en el login
+//Esto ultimo, al cargar el script, carga en el elemento de id "user" lo que ingresamos en el campo de "email" en el login
 document.addEventListener("DOMContentLoaded", function(){
 
 if ((localStorage.getItem("carrito") == null)) {

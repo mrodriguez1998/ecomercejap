@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
             <h4>${product.soldCount}</h4>
             <h4><b>Imagenes ilustrativas:</b></h4>
             `
-
             let images = "";
 
             for (let foto of product.images) {
@@ -27,6 +26,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 </div>`;
 
             }
+
+            //Carga todas las fotos del producto determinado
 
             document.getElementById("fotosHtml").innerHTML = images;
 
@@ -53,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             document.getElementById("relatedProducts").innerHTML = productosRelacionados;
 
-
+            //Carga en la parte inferior los productos relacionados
 
 
         }
@@ -80,6 +81,9 @@ function agregarAlCarrito(){
     console.log(localStorage.getItem("productoNuevo"));
     window.location=("cart.html");
 
+    //Al dar click en agregar al carrito, guarda bajo el nombre de "productoNuevo", los datos del nuevo producto 
+    //a agregar, en el mismo formato que trae el producto predeterminado (el Peugeot), para luego trabajar con el 
+    //en cart.js
    
 }
 
@@ -105,6 +109,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 document.getElementById("comentariosHtml").innerHTML = comments
 
             }
+
+            //Carga los comentarios traidos del products comments y los inyecta en el html
         }
     })
 })
@@ -122,4 +128,4 @@ function estrellitas(score) {
     }
 
     return puntuacion;
-};  //funcion para colocar estrellas en comentarios
+};  //Funcion para colocar estrellas en comentarios
