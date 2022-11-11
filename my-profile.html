@@ -46,7 +46,8 @@
           </li>
           <li class="nav-item">
             <div class="dropdown nav-item">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="user" data-bs-toggle="dropdown" aria-expanded="false">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="user" data-bs-toggle="dropdown"
+                aria-expanded="false">
                 Usuario
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -80,10 +81,6 @@
           <label for="primerApellido">Primer apellido</label>
           <input type="text" class="form-control" id="primerApellido" placeholder="Escobar" required></input>
         </div>
-        <div  id="avisoPerfil" class="alert fade position-absolute top-50 
-        start-50 translate-middle d-none alert-primary" style="width:auto" role="alert">
-          <span>Sus datos fueron guardados correctamente!</span>
-        </div>
         <div class="col-md-6">
           <label for="segundoApellido">Segundo apellido</label>
           <input type="text" class="form-control" id="segundoApellido" placeholder="Gaviria"></input>
@@ -102,8 +99,16 @@
       </div>
       <br>
       <br>
-      <button id="guardarCambiosUsuario" class="btn btn-primary position-absolute start-50 translate-middle" 
-      style="width:50%">Guardar cambios</button>
+      <button id="guardarCambiosUsuario" class="btn btn-primary position-absolute start-50 translate-middle"
+        style="width:50%">Guardar cambios</button>
+    </div>
+    <div id="avisoPerfil" class="alert fade position-absolute top-50 
+        start-50 translate-middle d-none alert-primary" style="width:auto" role="alert">
+      <span>Sus datos fueron guardados correctamente!</span>
+    </div>
+    <div id="avisoError" class="alert alert-danger fade position-absolute top-50 
+        start-50 translate-middle d-none alert-primary" style="width:auto" role="alert">
+      <span>Rellene los campos Nombre, Apellido y Correo adecuadamente</span>
     </div>
   </main>
   <footer class="text-muted">
