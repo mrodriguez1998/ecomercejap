@@ -5,6 +5,7 @@ let productsArray = [];
 let currentSortCriteria = undefined;
 let minPrecio = undefined;
 let maxPrecio = undefined;
+let search = "";
 
 function sortProducts(criteria){
 
@@ -53,23 +54,24 @@ function showProductsList(){
         if (((minPrecio == undefined) || (minPrecio != undefined && parseInt(product.cost) >= minPrecio)) &&
             ((maxPrecio == undefined) || (maxPrecio != undefined && parseInt(product.cost) <= maxPrecio))){
 
-
-            htmlContentToAppend += `
-            <div onclick="setProductID(${product.id})" class="list-group-item list-group-item-action cursor-active">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="${product.image}" alt="${product.description}" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">${product.name} - ${product.currency}${product.cost}</h4>
-                            <small class="text-muted">${product.soldCount} vendidos</small>
+                if (product.name.toLowerCase().includes(search.toLowerCase())) {
+                    htmlContentToAppend += `
+                    <div onclick="setProductID(${product.id})" class="list-group-item list-group-item-action cursor-active">
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="${product.image}" alt="${product.description}" class="img-thumbnail">
+                            </div>
+                            <div class="col">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h4 class="mb-1">${product.name} - ${product.currency}${product.cost}</h4>
+                                    <small class="text-muted">${product.soldCount} vendidos</small>
+                                </div>
+                                <p class="mb-1">${product.description}</p>
+                            </div>
                         </div>
-                        <p class="mb-1">${product.description}</p>
                     </div>
-                </div>
-            </div>
-            `
+                    `  
+                }            
             }
         }
 
@@ -152,3 +154,11 @@ document.addEventListener("DOMContentLoaded", function(e){
         showProductsList();
     });
 });
+
+
+document.getElementById("buscadorProductos").addEventListener("input", function(){
+
+        search = document.getElementById("buscadorProductos").value;
+        showProductsList();
+
+    });
