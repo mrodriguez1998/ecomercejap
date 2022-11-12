@@ -1,3 +1,5 @@
+let productComments = {};
+
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData("https://japceibal.github.io/emercado-api/products/" + (localStorage.getItem("productID")) + ".json").then(function (resultObj) {
         if (resultObj.status === "ok") {
@@ -96,8 +98,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData("https://japceibal.github.io/emercado-api/products_comments/" + (localStorage.getItem("productID")) + ".json").then(function (resultObj) {
         if (resultObj.status === "ok") {
             productComments = resultObj.data
+            cargarComentarios();
+            //Carga los comentarios traidos del products comments y los inyecta en el html
+        }
+    })
+})
 
-            let comments = "";
+function cargarComentarios(){
+
+    let comments = "";
 
             for (let comentario of productComments) {
 
@@ -110,10 +119,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             }
 
-            //Carga los comentarios traidos del products comments y los inyecta en el html
-        }
-    })
-})
+}
 
 function estrellitas(score) {
     let puntuacion = [];
@@ -129,3 +135,27 @@ function estrellitas(score) {
 
     return puntuacion;
 };  //Funcion para colocar estrellas en comentarios
+
+
+function nuevoComentario(){
+
+    var today = new Date();
+    var now = today.toLocaleString();
+    coment = document.getElementById("nuevoComentario").value 
+
+        let nuevo = {};
+
+    nuevo = {
+    dateTime: now,
+    description: coment,
+    product: "",
+    score: parseInt(document.getElementById("nuevaCalificacion").value),
+    user: localStorage.getItem("usuario")
+    }
+
+console.log(nuevo);
+
+    productComments.push(nuevo);
+
+    cargarComentarios();
+}
