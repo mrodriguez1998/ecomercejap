@@ -196,6 +196,10 @@ document.addEventListener("submit", function(event){
         console.log("entro a la alerta")
         document.getElementById("avisoSubmit").classList.add('alert-primary')
         document.getElementById("avisoSubmit").classList.add('show')
+        setTimeout(() => {
+            document.getElementById("avisoSubmit").classList.remove("show")
+            document.getElementById("avisoSubmit").classList.add("d-none")
+        }, 2.0 * 1000)
     }
 
     
