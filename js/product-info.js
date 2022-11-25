@@ -1,7 +1,7 @@
 let productComments = {};
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData("https://japceibal.github.io/emercado-api/products/" + (localStorage.getItem("productID")) + ".json").then(function (resultObj) {
+    getJSONData(PRODUCT_INFO_URL + (localStorage.getItem("productID")) + EXT_TYPE).then(function (resultObj) {
         if (resultObj.status === "ok") {
             product = resultObj.data
 
@@ -95,7 +95,7 @@ function setProductID(id) {
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData("https://japceibal.github.io/emercado-api/products_comments/" + (localStorage.getItem("productID")) + ".json").then(function (resultObj) {
+    getJSONData(PRODUCT_INFO_COMMENTS_URL + (localStorage.getItem("productID")) + EXT_TYPE).then(function (resultObj) {
         if (resultObj.status === "ok") {
             productComments = resultObj.data
             cargarComentarios();

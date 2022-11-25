@@ -4,7 +4,7 @@ var carrito = JSON.parse(localStorage.getItem("carrito")); //Llama al posible ca
 
 document.addEventListener("DOMContentLoaded", function () {
     //Al cargar la pagina, mete en el html la info en formato tabla de el articulo
-    getJSONData("https://japceibal.github.io/emercado-api/user_cart/25801.json").then(function (resultObj) {
+    getJSONData(CART_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
 
             if ((localStorage.getItem("carrito") == null) && (localStorage.getItem("productoNuevo") == null)) {

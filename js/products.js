@@ -92,7 +92,7 @@ function sortAndShowProducts(sortCriteria, productsList){
 }
 
 document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData("https://japceibal.github.io/emercado-api/cats_products/" + (localStorage.getItem("catID")) + ".json").then(function(resultObj){
+    getJSONData(PRODUCTS_URL + (localStorage.getItem("catID")) + EXT_TYPE).then(function(resultObj){
         if (resultObj.status === "ok"){
             productsArray = resultObj.data
             showProductsList()
